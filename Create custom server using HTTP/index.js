@@ -16,16 +16,16 @@ const server = http.createServer((req,res)=>{
    }
    else if(req.method=="GET" && req.url=="/getproductdata")
    {
-    fs.readFile("./db.json","utf-8",(err,data)=>{
+    fs.readFile("./db.json","utf-8",(err,products)=>{
         if(err){
             console.log(err)
             res.end(err)
         }
         else
         {
-            const productdatafromdb = JSON.parse(data)
-           console.log(data)
-            res.end(JSON.stringify(productdatafromdb.data));
+            const productdatafromdb = JSON.parse(products)
+           console.log(products)
+            res.end(JSON.stringify(productdatafromdb.products));
         }
     }
 )
